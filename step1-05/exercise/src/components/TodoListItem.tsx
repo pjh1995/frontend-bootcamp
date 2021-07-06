@@ -1,13 +1,19 @@
-import React from "react";
+import React from 'react';
+import { Todo } from '../types';
 
-export class TodoListItem extends React.Component<any, any> {
-  render() {
-    return (
-      <li className="todo">
-        <label>
-          <input type="checkbox" /> Todo 1
-        </label>
-      </li>
-    );
-  }
-}
+type TodoItem = {
+  todo: Todo;
+};
+const TodoListItem = (props: TodoItem) => {
+  const { todo } = props;
+
+  return (
+    <li className="todo">
+      <label>
+        <input type="checkbox" /> {todo.todo}
+      </label>
+    </li>
+  );
+};
+
+export default TodoListItem;
