@@ -10,7 +10,6 @@ let index = 0;
 
 const className = mergeStyles({
   padding: 25,
-  ...getTheme().effects.elevation4
 });
 
 // Uncomment to see loadTheme
@@ -48,7 +47,7 @@ export class TodoApp extends React.Component<any, Store> {
     super(props);
     this.state = {
       todos: {},
-      filter: 'all'
+      filter: 'all',
     };
   }
   render() {
@@ -66,30 +65,30 @@ export class TodoApp extends React.Component<any, Store> {
     );
   }
 
-  private _addTodo = label => {
+  private _addTodo = (label) => {
     const { todos } = this.state;
     const id = index++;
 
     this.setState({
-      todos: { ...todos, [id]: { label } }
+      todos: { ...todos, [id]: { label } },
     });
   };
 
-  private _remove = id => {
+  private _remove = (id) => {
     const newTodos = { ...this.state.todos };
     delete newTodos[id];
 
     this.setState({
-      todos: newTodos
+      todos: newTodos,
     });
   };
 
-  private _complete = id => {
+  private _complete = (id) => {
     const newTodos = { ...this.state.todos };
     newTodos[id].completed = !newTodos[id].completed;
 
     this.setState({
-      todos: newTodos
+      todos: newTodos,
     });
   };
 
@@ -98,7 +97,7 @@ export class TodoApp extends React.Component<any, Store> {
     newTodos[id] = { ...newTodos[id], label };
 
     this.setState({
-      todos: newTodos
+      todos: newTodos,
     });
   };
 
@@ -106,20 +105,20 @@ export class TodoApp extends React.Component<any, Store> {
     const { todos } = this.state;
     const newTodos = {};
 
-    Object.keys(this.state.todos).forEach(id => {
+    Object.keys(this.state.todos).forEach((id) => {
       if (!todos[id].completed) {
         newTodos[id] = todos[id];
       }
     });
 
     this.setState({
-      todos: newTodos
+      todos: newTodos,
     });
   };
 
-  private _setFilter = filter => {
+  private _setFilter = (filter) => {
     this.setState({
-      filter: filter
+      filter: filter,
     });
   };
 }
