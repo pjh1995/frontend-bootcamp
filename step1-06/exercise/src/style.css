@@ -44,6 +44,10 @@ small {
   padding: 0;
 }
 
+.todo input[type='checkbox']:checked + span {
+  text-decoration: line-through;
+}
+
 footer {
   display: flex;
 }
